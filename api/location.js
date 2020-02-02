@@ -1,10 +1,10 @@
 import {updateFile} from "./_updateFile";
 
 module.exports = (req, response) => {
-    updateFile('data/requests.json', (oldContent => {
-        let requestsJson = JSON.parse(oldContent);
-        requestsJson.requests.push({body: req.body, query: req.query});
-        return JSON.stringify(requestsJson)
+    updateFile('data/locations.json', (oldContent => {
+        let json = JSON.parse(oldContent);
+        json.locations.push({...JSON.parse(req.body)});
+        return JSON.stringify(json)
     })).then(() => {
         response.json({success: true})
     }).catch((error) => {
