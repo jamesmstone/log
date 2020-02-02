@@ -1,7 +1,7 @@
 const Octokit = require("@octokit/rest"),
     owner = 'jamesmstone',
-    repo = 'log';
-
+    repo = 'log',
+    branch = 'gh-pages';
 
 export const updateFile = (path, updater) => {
     return new Promise((resolveAll, rejectAll) => {
@@ -10,7 +10,8 @@ export const updateFile = (path, updater) => {
         octokit.repos.getContents({
             owner,
             repo,
-            path
+            path,
+            ref: branch
         }).then(result => {
             let buff = Buffer.from(result.data.content, 'base64');
             let requestsRaw = buff.toString('utf-8');
@@ -27,12 +28,11 @@ export const updateFile = (path, updater) => {
                 path,
                 message,
                 content,
-                sha
+                sha,
+                branch
             }).then(result => {
                 resolveAll()
             }).catch(rejectAll)
         }).catch(rejectAll);
-
-
     })
 }

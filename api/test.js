@@ -10,8 +10,5 @@ module.exports = (req, response) => {
     }).catch((error) => {
         response.status(400);
         response.json({success: false, error: error})
-
     })
-
-
 };
