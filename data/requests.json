@@ -1,1 +1,1 @@
-{"requests":[{"query":{"test":"true"}},{"query":{"test":"true"}}]}
+{"requests":[{"query":{"test":"true"}},{"query":{"test":"true"}},{"query":{"test":""}}]}
