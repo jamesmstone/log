@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jamesmstone/log/issues"
   },
-  "homepage": "https://github.com/jamesmstone/log#readme"
+  "homepage": "https://github.com/jamesmstone/log#readme",
+  "dependencies": {
+    "@octokit/rest": "^16.41.1"
+  }
 }
